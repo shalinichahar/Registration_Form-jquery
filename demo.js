@@ -159,7 +159,7 @@ $(function(e) {
           cell3.innerHTML = tableArray[i] && tableArray[i].password? tableArray[i].password: '';
           cell4.innerHTML = tableArray[i] && tableArray[i].contactNumber? tableArray[i].contactNumber: '';
           cell5.innerHTML = tableArray[i] && tableArray[i].address? tableArray[i].address:'';
-          cell6.innerHTML = tableArray[i] && tableArray[i].profession? tableArray[i].profession:'no';
+          cell6.innerHTML = tableArray[i] && tableArray[i].profession? tableArray[i].profession:'not employed';
           cell7.innerHTML = tableArray[i] && tableArray[i].gender?tableArray[i].gender:'';
           cell8.innerHTML = tableArray[i]&& tableArray[i].country? tableArray[i].country: '';
       
