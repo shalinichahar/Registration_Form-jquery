@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Registration form</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>  label.error { color: red; }  </style>
+</head>
+<body >  
+
+<div class="container notebook mt-5">
+    <form action="" autocomplete="off" name="myForm" id="form" >
+    
+        <div class="row justify-content-center">
+            <div class="col">
+
+                <!-- General Info -->
+                <div class="tab1" onclick="showForm('contactDetailsForm')">
+                    <h2>General Information</h2>
+                </div>
+                <div class="form-container">
+                    
+                        <div class="form-group"> 
+                            <label for="name">Name:</label>
+                            <input type="text" class="form-control" name="name" id="name" required >      
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password:</label>
+                            <input type="password" class="form-control" id="password" name="password" >   
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm_password">Confirm Password:</label>
+                            <input type="password" class="form-control" id="confirm_password" name="confirm_password" > 
+                        </div>
+                        <div class="form-group ">
+                            <label for="checkbox">Are you employed?</label>
+                            <div class="checkbox-container">
+                                <input type="checkbox"  class="form-control " id="checkbox" name="checkbox" value="employed" > Yes
+                            </div>    
+                            
+                        </div>
+                        <div class="form-group">
+                            <label for="gender" class="gender" id="gender">Gender:</label>
+                            <div>
+                                <input type="radio" class="form-control" id="male" name="gender" value="male" class="untick" > Male </input>
+                                <input type="radio" class="form-control" id="female" name="gender" value="female" class="untick"> Female </input>
+                                <input type="radio"class="form-control" id="other" name="gender" value="other" class="untick" > Other </input>
+                            </div>    
+                       
+                        </div>
+                        <div class="form-group"> 
+                            <label for="country">Country:</label>
+                            <select id="country" class="form-control"  name="country">
+                                <option value="default">Choose an option</option>
+                                <option value="us">United States</option>
+                                <option value="canada">Canada</option>
+                                <option value="uk">United Kingdom</option>
+                                <option value="India">India</option> 
+                            </select>
+                            <br>
+                        </div> 
+                    
+                </div>
+            </div>
+
+            <div class="col" id="col2">
+                <div class="tab" onclick="showForm('contactDetailsForm')">
+                    <h2>Contact Details</h2>
+                </div>
+                <div class="form-container">
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" class="form-control" id="email" name="email" >    
+                        </div> 
+                        <div class="form-group">
+                            <label for="contact_number">Contact Number:</label>
+                            <input type="tel" class="form-control" id="contact_number" name="contact_number" >
+                        </div> 
+                        <div class="form-group">
+                            <label for="address">Address:</label>
+                            <textarea id="address" class="form-control" name="address" rows="2" ></textarea>           
+                        </div>
+                     
+                        <button type="submit" id="btn" class="btn btn-light">Register</button>
+                </div>
+            </div>
+        </div>
+    
+    
+     </form> 
+    </div>
+
+    <div class="sum"><h2> Summary Table </h2></div>
+     <table class="container paginated table table-striped" id="dataTable" >
+        
+        <thead>
+            <tr> 
+                <th>Name</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Contact-No</th>              
+                <th>Address</th>             
+                <th>Profession</th>                       
+                <th>Gender</th>
+                <th>Country</th>                
+                <th>Action1</th>   
+                <th>Action2</th>   
+            </tr>
+            
+        </thead>
+       <tbody id="table-item">
+       
+       </tbody> 
+    </table>   
+    <nav id="navbar" class="pagination-container" arial-label="Page navigation example">
+        <button class="pagination-button disabled" id="prev-button" title="Previous page" aria-label="Previous page">
+            &lt;
+        </button>
+        <div id="pagination-number">
+
+        </div>
+        <button class="pagination-button disabled" id="next-button" title="Next page" aria-label="Next page" >
+            &gt;
+        </button>
+      </nav>
+    <script src="/jquery/demo.js"></script> 
+</body>
+</html>
