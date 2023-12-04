@@ -8,9 +8,10 @@ $(function(e) {
   let confirmPassword = $('#confirm_password').val();
   let contactNumber = $('#contact_number').val();
   let address = $('#address').val();
-  let profession = $('#checkbox').val();
+  let profession = $("#checkbox").prop("checked");
   let selectedGenderValue = $("input[name='gender']:checked").val();
   let country = $('#country').val();
+ 
   
   let previousLocalStorageData = (JSON.parse(localStorage.getItem("formDataArray")));
   if(previousLocalStorageData){
@@ -21,7 +22,8 @@ $(function(e) {
   $.validator.addMethod("selectCountry", function(value){
     return value !== "default"; 
   }, "Please select a country.");
-  
+
+
   $("#form").submit(function(e){
     e.preventDefault();
   }).validate({  
@@ -50,9 +52,6 @@ $(function(e) {
       address: {
         required: true
       },
-      checkbox: {
-        required: false
-      },
       gender: {
         required: true
       },
@@ -69,7 +68,8 @@ $(function(e) {
         minlength: "Your password must be at least 8 characters long"
       },
       confirm_password: {
-        required: "Please re-enter password"
+        required: "Please re-enter password",
+        equalTo: "Please enter confirm password same as password."
       },
       email: "Please enter a valid email address",
       contact_number:{
@@ -82,6 +82,13 @@ $(function(e) {
       }
     },
     
+    errorPlacement: function(error, element) {
+      if (element.attr("name") == "gender") {
+          error.insertAfter(element.parent().parent()); // Adjust placement as needed
+      } else {
+          error.insertAfter(element);
+      }
+    },
     submitHandler: function(form) {
       if(($('#btn').text()) == "Register"){
         console.log("hey")
@@ -100,10 +107,10 @@ $(function(e) {
       password = $('#password').val();
       contactNumber = $('#contact_number').val();
       address = $('#address').val();
-      profession = $('#checkbox').val(); //changed
+      profession = $("#checkbox").prop("checked");
       selectedGenderValue = $("input[name='gender']:checked").val();
       country = $('#country').val();
-      
+      console.log(profession)
       let formData = {
           "name": name,
           "email" : email,
@@ -129,17 +136,16 @@ $(function(e) {
     function updateTable(tableArray) {  
       let table =  document.getElementsByTagName('tbody')[0];
       table.innerHTML = "";
-      console.log(table)
 
       name = $('#name').val();
       email = $('#email').val();
       password = $('#password').val();
       contactNumber = $('#contact_number').val();
       address = $('#address').val();
-      profession = $('#checkbox').val();
+      profession = $("#checkbox").prop("checked");
       selectedGenderValue = $("input[name='gender']:checked").val();
       country = $('#country').val();
-      
+  
       for( let i=0; i< 5; i++){    
           var r = table.insertRow();
 
@@ -159,7 +165,7 @@ $(function(e) {
           cell3.innerHTML = tableArray[i] && tableArray[i].password? tableArray[i].password: '';
           cell4.innerHTML = tableArray[i] && tableArray[i].contactNumber? tableArray[i].contactNumber: '';
           cell5.innerHTML = tableArray[i] && tableArray[i].address? tableArray[i].address:'';
-          cell6.innerHTML = tableArray[i] && tableArray[i].profession? tableArray[i].profession:'not employed';
+          cell6.innerHTML = tableArray[i] && tableArray[i].profession?"employed":'umemployed' ;
           cell7.innerHTML = tableArray[i] && tableArray[i].gender?tableArray[i].gender:'';
           cell8.innerHTML = tableArray[i]&& tableArray[i].country? tableArray[i].country: '';
       

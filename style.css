@@ -18,20 +18,15 @@ body {
    
     justify-content: center;
     align-items: center;
-    
     display: block;
-    
     /* -webkit-box-align: center; */
-   
-    background-image: -webkit-linear-gradient( 136deg,rgb(149,153,226) 0%,rgb(139,198,236) 100%);
-    
+    background-image: -webkit-linear-gradient( 136deg,rgb(149,153,226) 0%,rgb(139,198,236) 100%); 
   }
 
   .container.notebook.mt-5{
     width: 85%;
-   box-sizing: border-box;
-   border-radius: 2%;
-
+    box-sizing: border-box;
+    border-radius: 2%;
     padding: 20px;
     height: fit-content;
     font-family: Arial, Helvetica, sans-serif;
@@ -57,20 +52,21 @@ body {
     margin-bottom: 34px;
     background-color: #fff;
     color: #4835d4;
-    
     cursor: pointer;
     transition: background-color 0.3s;
-    
-
   }
   .tab{
     padding: 33px 30px 0;
     font-weight: 500;
     font-size: 25px;
     margin-bottom: 34px;
+    cursor: pointer;
   }
 
   .tab:hover {
+    background-color: #45a049;
+  }
+  .tab1:hover{
     background-color: #45a049;
   }
 
@@ -105,16 +101,15 @@ input[type="checkbox"]{
 .checkbox-container{
     display: flex;
     align-items: center;
-    
 }
 
 .pagination-container {
     display: flex;
     align-items: center;
-  
     bottom: 0;
     justify-content: center;
   }
+
   .pagination-number,
   .pagination-button{
     font-size: 1.1rem;
@@ -138,7 +133,6 @@ input[type="checkbox"]{
     display: none;
 }
 #pagination-number li {
-    
     padding: 10px;
     margin: auto; 
 }
@@ -169,18 +163,13 @@ form{
     padding : 0px;
     margin:0px;
 }
-.container.container.notebook.mt-5{
-   
-    padding : 0px;
-    
-    
+.container.container.notebook.mt-5{ 
+    padding : 0px; 
 }
 #col2{
     color: #ffffff;
     text-align: left;
 }
-
-
 table h2{
     margin-top: 20px;
 }
@@ -192,14 +181,11 @@ table {
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
-
 }
 
 th{
     height: 40px;
 }
-
-
 td{
     text-align: centre;
 }
@@ -216,6 +202,11 @@ table, td, th {
 
 .tr{
     color: red;
+    
+}
+thead{
+  background-color: #4835d4;
+  color: #fff;
 }
 
 .sum{
