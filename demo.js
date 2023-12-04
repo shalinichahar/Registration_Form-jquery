@@ -1,7 +1,6 @@
 $(function(e) {
   var existingData = [];
   let row;
-
   let name;
   let email = $('#email').val();
   let password = $('#password').val();
@@ -12,7 +11,6 @@ $(function(e) {
   let selectedGenderValue = $("input[name='gender']:checked").val();
   let country = $('#country').val();
  
-  
   let previousLocalStorageData = (JSON.parse(localStorage.getItem("formDataArray")));
   if(previousLocalStorageData){
       updateTable(previousLocalStorageData);
@@ -31,7 +29,6 @@ $(function(e) {
       name: "required",
       email: {
         required: true,
-        
         email: true
       },
       password: {
@@ -59,10 +56,8 @@ $(function(e) {
         selectCountry: true
       }
     },
-  
     messages: {
       name: "Please enter your name",
-      
       password: {
         required: "Please provide a password",
         minlength: "Your password must be at least 8 characters long"
@@ -121,7 +116,6 @@ $(function(e) {
           "gender":selectedGenderValue,
           "country":country
       }
-      
       existingData = JSON.parse(localStorage.getItem("formDataArray")) || [];
       existingData.push(formData);
       localStorage.setItem("formDataArray", JSON.stringify(existingData));
@@ -129,7 +123,6 @@ $(function(e) {
       if( existingData != []){
         pagination(existingData);
       }
-      
       formClear();
     }
     
@@ -175,7 +168,6 @@ $(function(e) {
         deleteButton.addEventListener("click", function() {
           deleteData(i);
         })
-
         var editButton = document.createElement("button");
         editButton.textContent  = "Edit";
         editButton.className = "edit-btn";
@@ -192,11 +184,19 @@ $(function(e) {
             cell9.appendChild(deleteButton);
             cell10.appendChild(editButton);
         }
-        
       }     
     } 
-    
-
+    function formClear() {
+      $("#name").val("");
+      $("#email").val("");
+      $("#password").val("");
+      $("#confirm_password").val("");
+      $("#contact_number").val("");
+      $("#address").val("");
+      $('#checkbox').prop('checked', false);
+      $('input[name="gender"]').prop('checked', false);
+      $("#country").val("default"); 
+    } 
     function pagination(array){
       const next = document.getElementById('next-button');
       const previous = document.getElementById('prev-button');
@@ -275,8 +275,7 @@ $(function(e) {
     function nextClicked(array, pageNum, numberOfPages){
       const prevRange = (pageNum - 1) * 5;
       const currRange = pageNum * 5; 
-      updateTable(array.slice(prevRange, currRange));
-      
+      updateTable(array.slice(prevRange, currRange)); 
     }
     function previousClicked(array, pageNum){
       const prevRange = (pageNum - 1) * 5;
@@ -288,19 +287,6 @@ $(function(e) {
       const currRange = pageNumberClicked * 5;
       updateTable(array.slice( prevRange, currRange));
     }
-    
-    function formClear() {
-      $("#name").val("");
-      $("#email").val("");
-      $("#password").val("");
-      $("#confirm_password").val("");
-      $("#contact_number").val("");
-      $("#address").val("");
-      $('#checkbox').prop('checked', false);
-      $('input[name="gender"]').prop('checked', false);
-      $("#country").val("default"); 
-    } 
-  
     function deleteData(index) { 
       let x = JSON.parse(localStorage.getItem("formDataArray"))
       if(x){
@@ -312,7 +298,6 @@ $(function(e) {
       updateTable(x);
       formClear();
       $('#btn').innerText = "Register";
-
     }
  
     function editData(index, existingData) {
@@ -367,6 +352,6 @@ $(function(e) {
        localStorage.setItem("formDataArray", JSON.stringify(updatedData));  //djfdd
        updateTable(updatedData);   
        $("#btn").text("Register");
-      //  formClear();
+       formClear();
     }   
 });
