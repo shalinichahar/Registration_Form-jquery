@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/css/style.css">
     <title>Registration form</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.5/dist/jquery.validate.js"></script>
@@ -39,9 +39,8 @@
                         <div class="form-group ">
                             <label for="checkbox">Are you employed?</label>
                             <div class="checkbox-container">
-                                <input type="checkbox"  class="form-control " id="checkbox" name="checkbox" value="" > Yes
-                            </div>    
-                            
+                                <input type="checkbox"  class="form-control " id="checkbox" name="checkbox" value="1" onchange=""> Yes
+                            </div>         
                         </div>
                         <div class="form-group">
                             <label for="gender" class="gender" id="gender">Gender:</label>
@@ -50,7 +49,6 @@
                                 <input type="radio" class="form-control" id="female" name="gender" value="female" class="untick"> Female </input>
                                 <input type="radio"class="form-control" id="other" name="gender" value="other" class="untick" > Other </input>
                             </div>    
-                       
                         </div>
                         <div class="form-group"> 
                             <label for="country">Country:</label>
@@ -127,6 +125,6 @@
             &gt;
         </button>
       </nav>
-    <script src="demo.js"></script> 
+    <script src="/jquery/demo.js"></script> 
 </body>
 </html>
