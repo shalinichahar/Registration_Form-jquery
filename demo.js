@@ -12,6 +12,8 @@ $(function(e) {
   let country = $('#country').val();
  
   let previousLocalStorageData = (JSON.parse(localStorage.getItem("formDataArray")));
+   toggleNoDataMessage(previousLocalStorageData);
+ 
   if(previousLocalStorageData){
       updateTable(previousLocalStorageData);
       pagination(previousLocalStorageData);
@@ -185,7 +187,21 @@ $(function(e) {
             cell10.appendChild(editButton);
         }
       }     
+      toggleNoDataMessage(tableArray);
     } 
+
+   function toggleNoDataMessage(dataArray) {
+      console.log(dataArray)
+      let noDataMessageRow = document.getElementById('noDataMessageRow');
+  
+      if (!dataArray) {
+          // Show the no data message if there is no data
+          noDataMessageRow.style.display = 'table-row';
+      } else {
+          // Hide the no data message if there is data
+          noDataMessageRow.style.display = 'none';
+      }
+    }
     function formClear() {
       $("#name").val("");
       $("#email").val("");
